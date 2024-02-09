@@ -1,0 +1,86 @@
+﻿@model UKCrimeDataWebApp.Models.CrimeSummary
+
+@{
+    ViewData["Title"] = "Crime";
+}
+
+
+
+<h4>Crime Data</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Crime" method="post">
+            <div class="mb-3">
+                <label for="Latitude">Latitude:</label>
+                <input type="text" class="form-control" id="Latitude" name="Latitude" value="@Model.Latitude" required />
+            </div>
+            <div class="mb-3">
+                <label for="Longitude">Longitude:</label>
+                <input type="text" class="form-control" id="Longitude" name="Longitude" value="@Model.Longitude" required />
+            </div>
+            <div class="mb-3">
+                <label for="Date">Date (YYYY-MM):</label>
+                <input type="month" class="form-control" id="Date" name="Date" value="@Model.Date" required />
+            </div>
+            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        </form>
+
+        @if (Model.CrimesByCategory != null && Model.CrimesByCategory.Count > 0)
+        {
+            <h2>Crime Summary</h2>
+            <ul>
+                @foreach (var category in Model.CrimesByCategory)
+                {
+                    <li>@category.Key: @category.Value</li>
+                }
+            </ul>
+        }
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(modelState => modelState.Errors))
+                {
+                    <p>@error.ErrorMessage</p>
+                }
+            </div>
+        }
+
+    </div>
+
+    <div class="col">
+        <canvas id="crimeChart" width="800" height="400"></canvas>
+    </div>
+
+</div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('crimeChart').getContext('2d');
+        var crimeData = {
+            labels: @Html.Raw(Json.Serialize(Model.CrimesByCategory.Keys)),
+            datasets: [{
+                label: 'Number of Crimes',
+                data: @Html.Raw(Json.Serialize(Model.CrimesByCategory.Values)),
+                borderWidth: 1
+            }]
+        };
+
+        var myChart = new Chart(ctx, {
+            type: 'bar', 
+            data: crimeData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+  
+   
+</script>
+

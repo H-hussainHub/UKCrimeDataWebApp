@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UKCrimeDataWebApp", "UKCrimeDataWebApp.csproj", "{0153681A-39EB-462E-947A-06BB080A22D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UKCrimeDataWebApp.Tests", "..\UKCrimeDataWebApp.Tests\UKCrimeDataWebApp.Tests.csproj", "{1E73246B-9FB5-47D8-93E8-D2438F7C899B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0153681A-39EB-462E-947A-06BB080A22D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0153681A-39EB-462E-947A-06BB080A22D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0153681A-39EB-462E-947A-06BB080A22D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0153681A-39EB-462E-947A-06BB080A22D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E73246B-9FB5-47D8-93E8-D2438F7C899B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E73246B-9FB5-47D8-93E8-D2438F7C899B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E73246B-9FB5-47D8-93E8-D2438F7C899B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E73246B-9FB5-47D8-93E8-D2438F7C899B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {583F957A-9FB9-4E75-A14E-F8F6BC1D76DC}
+	EndGlobalSection
+EndGlobal
